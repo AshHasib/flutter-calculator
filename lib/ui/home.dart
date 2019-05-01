@@ -11,9 +11,9 @@ class Home extends StatefulWidget {
 class HomeState extends State<Home> {
   Widget createButton(String text) {
     return new Expanded(
-        child: new Container(
-      margin: const EdgeInsets.all(10.0),
-      child: new OutlineButton(
+      child: new Container(
+        margin: const EdgeInsets.all(10.0),
+        child:new OutlineButton(
         color: Colors.grey,
         child: new Text(
           text,
@@ -21,11 +21,33 @@ class HomeState extends State<Home> {
         ),
         onPressed: () => {},
       ),
-    ));
+      )
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+
+    //TODO: implement control methods
+
+    Widget createButton(String text){
+      return new Expanded(
+        child: new OutlineButton(
+          child: new Text(
+            text,
+            style: new TextStyle(
+              fontStyle: FontStyle.normal,
+              fontSize: 24,
+              fontWeight: FontWeight.w500
+            ),
+            ),
+          padding: EdgeInsets.all(18.4),
+          onPressed: ()=>{},
+        ),
+      );
+    }
+
+
     // TODO: implement build
     return new Scaffold(
       backgroundColor: Colors.blueGrey.shade100,
@@ -36,91 +58,61 @@ class HomeState extends State<Home> {
       body: new Container(
         child: new Column(
           children: <Widget>[
-            new Text("Data"),
-            new Expanded(child: new Divider()),
-            new Container(
-              padding: EdgeInsets.all(0.0),
-              margin: EdgeInsets.all(0.0),
-              child: new Column(
-                children: <Widget>[
-                  new Row(
-                    children: <Widget>[
-                      new Expanded(
-                        child: new MaterialButton(
-                          color: Colors.grey,
-                          child: new Text("B"),
-                          onPressed: () => {},
-                        ),
-                      ),
-                      new Expanded(
-                        child: new MaterialButton(
-                          color: Colors.grey,
-                          child: new Text("B"),
-                          onPressed: () => {},
-                        ),
-                      ),
-                      new Expanded(
-                        child: new MaterialButton(
-                          color: Colors.grey,
-                          child: new Text("B"),
-                          onPressed: () => {},
-                        ),
-                      ),
-                    ],
-                  ),
-                  new Row(
-                    children: <Widget>[
-                      new Expanded(
-                        child: new MaterialButton(
-                          color: Colors.grey,
-                          child: new Text("B"),
-                          onPressed: () => {},
-                        ),
-                      ),
-                      new Expanded(
-                        child: new MaterialButton(
-                          color: Colors.grey,
-                          child: new Text("B"),
-                          onPressed: () => {},
-                        ),
-                      ),
-                      new Expanded(
-                        child: new MaterialButton(
-                          color: Colors.grey,
-                          child: new Text("B"),
-                          onPressed: () => {},
-                        ),
-                      ),
-                    ],
-                  ),
-                  new Row(
-                    children: <Widget>[
-                      new Expanded(
-                        child: new MaterialButton(
-                          color: Colors.grey,
-                          child: new Text("B"),
-                          onPressed: () => {},
-                        ),
-                      ),
-                      new Expanded(
-                        child: new MaterialButton(
-                          color: Colors.grey,
-                          child: new Text("B"),
-                          onPressed: () => {},
-                        ),
-                      ),
-                      new Expanded(
-                        child: new MaterialButton(
-                          color: Colors.grey,
-                          child: new Text("B"),
-                          onPressed: () => {},
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            new Text("Z"),
+
+            new Expanded(child:new Divider()),
+            new Column(
+              children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    createButton("√"),
+                    createButton("0"),
+                    createButton("00"),
+                    createButton("+"),
+                  ],
+                ),
+                new Row(
+                  children: <Widget>[
+                    createButton("7"),
+                    createButton("8"),
+                    createButton("9"),
+                    createButton("-"),
+                  ],
+                ),
+                new Row(
+                  children: <Widget>[
+                    createButton("4"),
+                    createButton("5"),
+                    createButton("6"),
+                    createButton("*"),
+                  ],
+                ),
+                new Row(
+                  children: <Widget>[
+                    createButton("1"),
+                    createButton("2"),
+                    createButton("3"),
+                    createButton("/"),
+                  ],
+                ),
+                new Row(
+                  children: <Widget>[
+                    createButton("0"),
+                    createButton("00"),
+                    createButton("."),
+                    createButton("%"),
+                  ],
+                ),
+                
+                new Row(
+                  children: <Widget>[
+                    createButton("AC"),
+                    createButton("C"),
+                    createButton("="),
+                  ],
+                ),
+              ],
+            )
           ],
         ),
       ),
