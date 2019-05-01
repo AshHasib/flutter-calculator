@@ -9,44 +9,44 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
+
+
+  //TODO: implement calculator operation
+  var output = "0";
+
+  void updateUI(String text) {
+    String temp;
+
+    if(output=="0"){
+      temp=text;
+    }
+    else {
+      temp=output+text;
+    }
+    
+    setState(() {
+      output = temp;
+    });
+  }
+
   Widget createButton(String text) {
     return new Expanded(
-      child: new Container(
-        margin: const EdgeInsets.all(10.0),
-        child:new OutlineButton(
-        color: Colors.grey,
-        child: new Text(
-          text,
-          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500),
-        ),
-        onPressed: () => {},
-      ),
-      )
+      child: new OutlineButton(
+          child: new Text(
+            text,
+            style: new TextStyle(
+                fontStyle: FontStyle.normal,
+                fontSize: 24,
+                fontWeight: FontWeight.w500),
+          ),
+          padding: EdgeInsets.all(18.4),
+          onPressed: () => updateUI(text)),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-
-    //TODO: implement control methods
-
-    Widget createButton(String text){
-      return new Expanded(
-        child: new OutlineButton(
-          child: new Text(
-            text,
-            style: new TextStyle(
-              fontStyle: FontStyle.normal,
-              fontSize: 24,
-              fontWeight: FontWeight.w500
-            ),
-            ),
-          padding: EdgeInsets.all(18.4),
-          onPressed: ()=>{},
-        ),
-      );
-    }
-
+    
 
     // TODO: implement build
     return new Scaffold(
@@ -54,20 +54,39 @@ class HomeState extends State<Home> {
       appBar: new AppBar(
         title: Text("Calculator"),
         backgroundColor: Colors.blueGrey,
+        actions: <Widget>[
+          new IconButton(
+            icon: new Icon(Icons.history),
+            onPressed: () => {},
+          ),
+          new IconButton(
+            icon: new Icon(Icons.info),
+            onPressed: () => {},
+          ),
+        ],
       ),
       body: new Container(
         child: new Column(
           children: <Widget>[
-            new Text("Z"),
-
-            new Expanded(child:new Divider()),
+            new Container(
+              margin: const EdgeInsets.only(top: 24, right: 8),
+              alignment: Alignment.centerRight,
+              child: new Text(
+                output,
+                style: new TextStyle(
+                  fontSize: 48,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            new Expanded(child: new Divider()),
             new Column(
               children: <Widget>[
                 new Row(
                   children: <Widget>[
                     createButton("√"),
-                    createButton("0"),
-                    createButton("00"),
+                    createButton("x!"),
+                    createButton("π"),
                     createButton("+"),
                   ],
                 ),
@@ -103,7 +122,6 @@ class HomeState extends State<Home> {
                     createButton("%"),
                   ],
                 ),
-                
                 new Row(
                   children: <Widget>[
                     createButton("AC"),
