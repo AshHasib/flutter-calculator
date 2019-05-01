@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../control/controller.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -9,21 +10,28 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-
-
   //TODO: implement calculator operation
   var output = "0";
 
-  void updateUI(String text) {
-    String temp;
+  void calculate(String text) {
+    String temp = "0";
+    var controller = new CalculatorController();
+    if (text == "AC") {
+      temp = '0';
+    } else if (text == "C") {
+      temp = output;
+      temp = temp.substring(0, temp.length - 1);
+      if (temp.isEmpty) {
+        temp = "0";
+      }
+    } else if (controller.isOperand(text)) {
+      debugPrint("is operand");
+    } else if (output == "0") {
+      temp = text;
+    } else {
+      temp = output + text;
+    }
 
-    if(output=="0"){
-      temp=text;
-    }
-    else {
-      temp=output+text;
-    }
-    
     setState(() {
       output = temp;
     });
@@ -40,14 +48,12 @@ class HomeState extends State<Home> {
                 fontWeight: FontWeight.w500),
           ),
           padding: EdgeInsets.all(18.4),
-          onPressed: () => updateUI(text)),
+          onPressed: () => calculate(text)),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    
-
     // TODO: implement build
     return new Scaffold(
       backgroundColor: Colors.blueGrey.shade100,
