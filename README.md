@@ -21,7 +21,7 @@ A simple calculator app using Google's Flutter framework
 
 **Entry point of the app:**
 
-...
+```
 import 'package:flutter/material.dart';
 import './ui/home.dart';
 void main(){
@@ -30,5 +30,5 @@ void main(){
     home: new Home(),
   ));
 }
-...
+```
 
