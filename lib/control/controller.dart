@@ -7,4 +7,8 @@ class CalculatorController{
   bool isOperand(String ch){
     return operands.contains(ch);
   }
+
+  bool textIsEmpty(String text){
+    return text.isEmpty;
+  }
 }

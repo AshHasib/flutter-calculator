@@ -10,9 +10,11 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
+  
   //TODO: implement calculator operation
   var output = "0";
-
+  var num1=0.0;
+  var num2=0.0;
   void calculate(String text) {
     String temp = "0";
     var controller = new CalculatorController();
@@ -26,6 +28,8 @@ class HomeState extends State<Home> {
       }
     } else if (controller.isOperand(text)) {
       debugPrint("is operand");
+      num1=double.parse("output");
+      output="0";
     } else if (output == "0") {
       temp = text;
     } else {
