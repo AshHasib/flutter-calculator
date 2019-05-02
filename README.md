@@ -1,5 +1,9 @@
+===
 # Project : flutter_calculator
 
+A simple calculator app using Google's Flutter framework
+
+---
 
 
 ## Getting Started
