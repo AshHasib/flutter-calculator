@@ -1,20 +1,34 @@
-===
+
 # Project : flutter_calculator
 
 A simple calculator app using Google's Flutter framework
-
 ---
 
+**Created by : Hasib Ashaduzzaman**
 
-## Getting Started
+*Operations performed by the app*
 
-This project is a starting point for a Flutter application.
+* Addition
+* Subtraction
+* Multiplication
+* Division
+* Square root
 
-A few resources to get you started if this is your first Flutter project:
+*Operations to be implemented later*
+* Trigonometric Functions
+* Logarithmic Operations
+* Matrix multiplication
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
+**Entry point of the app:**
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+...
+import 'package:flutter/material.dart';
+import './ui/home.dart';
+void main(){
+  runApp(new MaterialApp(
+    title: "Calculator",
+    home: new Home(),
+  ));
+}
+...
+
